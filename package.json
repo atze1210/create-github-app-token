@@ -27,7 +27,7 @@
     "esbuild": "^0.25.4",
     "execa": "^9.5.2",
     "open-cli": "^8.0.0",
-    "yaml": "^2.7.1"
+    "yaml": "^2.8.0"
   },
   "release": {
     "branches": [
