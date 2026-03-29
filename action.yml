@@ -131,6 +131,10 @@ outputs:
     description: "GitHub App installation ID"
   app-slug:
     description: "GitHub App slug"
+  git-committer-name:
+    description: "Git committer name for the GitHub App bot user (e.g. 'my-app[bot]')"
+  git-committer-email:
+    description: "Git committer email for the GitHub App bot user (e.g. '123456+my-app[bot]@users.noreply.github.com')"
 runs:
   using: "node20"
   main: "dist/main.cjs"

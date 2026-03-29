@@ -103,6 +103,24 @@ export async function test(cb = (_mockPool) => {}, env = DEFAULT_ENV) {
       { headers: { "content-type": "application/json" } }
     );
 
+  // Mock bot user ID request
+  const mockBotUserId = 123456789;
+  mockPool
+    .intercept({
+      path: `${basePath}/users/${mockAppSlug}%5Bbot%5D`,
+      method: "GET",
+      headers: {
+        accept: "application/vnd.github.v3+json",
+        "user-agent": "actions/create-github-app-token",
+        authorization: `token ${mockInstallationAccessToken}`,
+      },
+    })
+    .reply(
+      200,
+      { id: mockBotUserId, login: `${mockAppSlug}[bot]` },
+      { headers: { "content-type": "application/json" } }
+    );
+
   // Run the callback
   cb(mockPool);
 
